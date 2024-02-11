@@ -7,38 +7,52 @@
 #include <string>
 #include <iostream>
 #include "Propietario.h"
+#include "Veterinario.h"
+
+using namespace std;
 
 class Perro {
-private:
-    int edad;
-    std::string nombre;
-    std::string raza;
-    std::string tamanio;
-    std::string color;
-    Propietario* pPropietario;
+    private:
+        int edad;
+        string nombre;
+        string raza;
+        string tamanio;
+        string color;
+        Propietario* pPropietario;
+        Veterinario* vVeterinario;
 
-public:
-    Perro();
-    ~Perro(); //Destructor
-    void ladrar();
-    Propietario * getPropietario();
+    public:
+        //Constructores
+        Perro();
+        Perro(string nombre, int edad, string raza, string color, string tamanio);
+        
+        //Gets
+        Propietario* getPropietario();
+        Veterinario* getVeterinario();
+        int getEdad();
+        string getRaza();
+        string getNombre();
+        string getTamanio();
+        string getColor();
 
-    // Sirve para.......
-    void agregarPropietario(std::string nombre, std::string docIdentidad);
+        //Sets
+        void setPropietario(Propietario* pPropietario);
+        void setVeterinario(Veterinario* vVeterinario);
+        void setEdad(int edad);
+        void setRaza(string raza);
+        void setNombre(string nombre);
+        void setTamanio(string tamanio);
+        void setColor(string color);
 
-    // Sirve para relacionar dos clases cuando ya se tiene un objeto
-    void setPropietario(Propietario * pPropietario);
+        //Otros metodos
+        void ladrar();
+        void mostrarInfo();
 
+        //Agregar
+        void agregarPropietario(string nombre, string docIdentidad);
+        void agregarVeterinario(string nombre, int aniosExperiencia);
 
-    int getEdad();
-    void setEdad(int edad);
-    std::string getRaza();
-    void setRaza(std::string raza);
-    std::string getNombre();
-    void setNombre(std::string nombre);
-    std::string getTamanio();
-    void setTamanio(std::string tamanio);
-    std::string getColor();
-    void setColor(std::string color);
+        //Destructor
+        ~Perro(); 
 };
-#endif
+#endif //PERRO_H
